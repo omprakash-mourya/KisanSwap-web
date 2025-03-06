@@ -29,7 +29,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6 ml-auto pr-4">
+        <div className="hidden lg:flex gap-6 ml-auto pr-4">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -46,8 +46,8 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Menu */}
-        <div className="md:hidden ml-auto pr-4">
+        {/* Mobile/Tablet Menu */}
+        <div className="lg:hidden ml-auto pr-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
