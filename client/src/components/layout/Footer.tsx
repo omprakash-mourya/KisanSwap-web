@@ -5,6 +5,7 @@ import {
   SiFacebook, 
   SiX 
 } from "react-icons/si";
+import { Link } from "wouter";
 
 export default function Footer() {
   const socialLinks = [
@@ -15,10 +16,15 @@ export default function Footer() {
     { icon: SiX, href: "https://x.com", label: "X (formerly Twitter)" },
   ];
 
+  const legalLinks = [
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/terms", label: "Terms & Conditions" },
+  ];
+
   return (
     <footer className="border-t bg-muted/50">
       <div className="container py-8">
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-6">
           <div className="flex gap-6">
             {socialLinks.map((social) => (
               <a
@@ -33,8 +39,21 @@ export default function Footer() {
               </a>
             ))}
           </div>
+
+          <div className="flex gap-4">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Kisan Swap. All rights reserved.
+            © {new Date().getFullYear()} KisanSwap. All rights reserved.
           </p>
         </div>
       </div>

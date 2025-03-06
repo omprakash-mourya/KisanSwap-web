@@ -10,6 +10,8 @@ import Home from "@/pages/Home";
 import Features from "@/pages/Features";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Terms from "@/pages/Terms";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,17 +19,19 @@ function Router() {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <meta name="description" content="Kisan Swap - Empowering Farmers through technology. Buy and sell agricultural equipment easily." />
+        <meta name="description" content="KisanSwap - Empowering Farmers through technology. Buy and sell agricultural equipment easily." />
       </Helmet>
-      
+
       <Navbar />
-      
+
       <main className="flex-grow">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/features" component={Features} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy" component={PrivacyPolicy} />
+          <Route path="/terms" component={Terms} />
           <Route component={NotFound} />
         </Switch>
       </main>

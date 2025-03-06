@@ -26,20 +26,27 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Kisan Swap - Empowering Farmers</title>
-        <meta name="description" content="Welcome to Kisan Swap - Your marketplace for agricultural equipment. Buy and sell farm equipment easily." />
+        <title>KisanSwap - Empowering Farmers</title>
+        <meta name="description" content="Welcome to KisanSwap - Your marketplace for agricultural equipment. Buy and sell farm equipment easily." />
       </Helmet>
 
-      <section className="py-20 bg-primary/5">
-        <div className="container text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Welcome to Kisan Swap – Empowering Farmers
+      <section 
+        className="py-20 relative bg-gradient-to-r from-green-900/90 to-green-800/90"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M30 50C45 35 55 35 70 50C55 65 45 65 30 50Z' fill='%23ffffff10'/%3E%3C/svg%3E")`,
+          backgroundSize: '200px',
+          backgroundRepeat: 'repeat',
+        }}
+      >
+        <div className="container text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Welcome to KisanSwap – Empowering Farmers
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             Your trusted marketplace for buying and selling agricultural equipment
           </p>
           <Link href="/features">
-            <Button size="lg" className="font-semibold">
+            <Button size="lg" className="font-semibold bg-white text-primary hover:bg-white/90">
               Explore Features
             </Button>
           </Link>
