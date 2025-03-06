@@ -9,12 +9,12 @@ export default function PrivacyPolicy() {
       </Helmet>
 
       <div className="container py-12">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto px-6">
           <h1 className="text-4xl font-bold mb-6">Privacy Policy</h1>
-          
+
           <div className="prose prose-lg">
             <p className="text-muted-foreground">Last updated: March 2024</p>
-            
+
             <h2>Information We Collect</h2>
             <p>
               When you use KisanSwap, we collect information that you provide directly to us, including:

@@ -9,12 +9,12 @@ export default function Terms() {
       </Helmet>
 
       <div className="container py-12">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto px-6">
           <h1 className="text-4xl font-bold mb-6">Terms and Conditions</h1>
-          
+
           <div className="prose prose-lg">
             <p className="text-muted-foreground">Last updated: March 2024</p>
-            
+
             <h2>Acceptance of Terms</h2>
             <p>
               By accessing and using KisanSwap, you agree to be bound by these Terms and Conditions.

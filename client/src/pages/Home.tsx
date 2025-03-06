@@ -39,7 +39,7 @@ export default function Home() {
         <div className="container text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-8 text-white leading-tight">
             Welcome to KisanSwap<br />
-            <span className="text-4xl md:text-5xl">Empowering Farmers</span>
+            <span className="text-3xl md:text-4xl">Empowering Farmers</span>
           </h1>
           <Link href="/features">
             <Button size="lg" className="font-semibold px-8 py-6 text-lg">
