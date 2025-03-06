@@ -4,17 +4,17 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About - Kisan Swap</title>
-        <meta name="description" content="Learn about Kisan Swap's mission to empower farmers through technology and innovation in agricultural equipment trading." />
+        <title>About - KisanSwap</title>
+        <meta name="description" content="Learn about KisanSwap's mission to empower farmers through technology and innovation in agricultural equipment trading." />
       </Helmet>
 
-      <div className="container py-12">
+      <div className="container py-12 px-6">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6">About Kisan Swap</h1>
-          
+          <h1 className="text-4xl font-bold mb-6">About KisanSwap</h1>
+
           <div className="prose prose-lg">
             <p className="text-xl text-muted-foreground mb-6">
-              At Kisan Swap, we're on a mission to empower farmers through technology,
+              At KisanSwap, we're on a mission to empower farmers through technology,
               making it easier than ever to access and trade agricultural equipment.
             </p>
 
@@ -26,7 +26,7 @@ export default function About() {
               and increase productivity.
             </p>
 
-            <h2 className="text-2xl font-semibold mt-8 mb-4">Why Choose Kisan Swap?</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-4">Why Choose KisanSwap?</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>Direct connection between buyers and sellers</li>
               <li>Transparent pricing and negotiation</li>

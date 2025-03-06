@@ -25,7 +25,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
-  
+
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -46,11 +46,11 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Us - Kisan Swap</title>
-        <meta name="description" content="Get in touch with Kisan Swap. We're here to help you with any questions about agricultural equipment trading." />
+        <title>Contact Us - KisanSwap</title>
+        <meta name="description" content="Get in touch with KisanSwap. We're here to help you with any questions about agricultural equipment trading." />
       </Helmet>
 
-      <div className="container py-12">
+      <div className="container py-12 px-6">
         <div className="max-w-md mx-auto">
           <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
           <p className="text-muted-foreground mb-8">

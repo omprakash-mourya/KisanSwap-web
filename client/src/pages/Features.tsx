@@ -40,11 +40,11 @@ export default function Features() {
   return (
     <>
       <Helmet>
-        <title>Features - Kisan Swap</title>
-        <meta name="description" content="Discover the powerful features of Kisan Swap - Easy uploads, direct communication, and detailed analytics for agricultural equipment trading." />
+        <title>Features - KisanSwap</title>
+        <meta name="description" content="Discover the powerful features of KisanSwap - Easy uploads, direct communication, and detailed analytics for agricultural equipment trading." />
       </Helmet>
 
-      <div className="container py-12">
+      <div className="container py-12 px-6">
         <h1 className="text-4xl font-bold text-center mb-4">
           Our Features
         </h1>
