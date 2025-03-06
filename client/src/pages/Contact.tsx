@@ -14,6 +14,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from 'react-helmet';
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -35,12 +37,29 @@ export default function Contact() {
     },
   });
 
+  const mutation = useMutation({
+    mutationFn: async (data: ContactFormValues) => {
+      const res = await apiRequest('POST', '/api/contact', data);
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Message Sent",
+        description: "Thank you for contacting us. We'll get back to you soon!",
+      });
+      form.reset();
+    },
+    onError: (error) => {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   function onSubmit(data: ContactFormValues) {
-    toast({
-      title: "Message Sent",
-      description: "Thank you for contacting us. We'll get back to you soon!",
-    });
-    form.reset();
+    mutation.mutate(data);
   }
 
   return (
@@ -106,8 +125,12 @@ export default function Contact() {
                 )}
               />
 
-              <Button type="submit" className="w-full">
-                Send Message
+              <Button 
+                type="submit" 
+                className="w-full"
+                disabled={mutation.isPending}
+              >
+                {mutation.isPending ? "Sending..." : "Send Message"}
               </Button>
             </form>
           </Form>
