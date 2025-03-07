@@ -14,14 +14,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from 'react-helmet';
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
+
+const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbwIYWlDezmwP7OEhbTnc2FPNra08pqlHcMRB1xcBLLc9CB6amvzTMVxUCPHZ-OiHsGJFA/exec';
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
@@ -37,29 +37,35 @@ export default function Contact() {
     },
   });
 
-  const mutation = useMutation({
-    mutationFn: async (data: ContactFormValues) => {
-      const res = await apiRequest('POST', '/api/contact', data);
-      return res.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message Sent",
-        description: "Thank you for contacting us. We'll get back to you soon!",
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      const formData = new FormData();
+      formData.append("name", data.name);
+      formData.append("email", data.email);
+      formData.append("message", data.message);
+
+      const response = await fetch(SHEET_API_URL, {
+        method: 'POST',
+        body: formData,
       });
-      form.reset();
-    },
-    onError: (error) => {
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent",
+          description: "Your message has been recorded successfully!",
+        });
+        form.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
         variant: "destructive",
       });
-    },
-  });
-
-  function onSubmit(data: ContactFormValues) {
-    mutation.mutate(data);
+    }
   }
 
   return (
@@ -128,9 +134,8 @@ export default function Contact() {
               <Button 
                 type="submit" 
                 className="w-full"
-                disabled={mutation.isPending}
               >
-                {mutation.isPending ? "Sending..." : "Send Message"}
+                Send Message
               </Button>
             </form>
           </Form>
